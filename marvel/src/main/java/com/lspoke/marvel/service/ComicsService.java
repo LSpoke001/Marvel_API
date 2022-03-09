@@ -19,4 +19,5 @@ public interface ComicsService {
     List<Character> findCharacterByComics(int id);
 
     void saveComics(Comics comics);
+    void uploadCharacter(int characterId, int comicsId);
 }

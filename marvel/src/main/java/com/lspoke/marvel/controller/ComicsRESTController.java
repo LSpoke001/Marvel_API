@@ -52,6 +52,13 @@ public class ComicsRESTController {
         return comicsService.findCharacterByComics(id);
     }
 
+    @Operation(summary = "Link character to comics")
+    @PostMapping( "/comics/{comicsId}/character/{characterId}")
+    public String setCharacterByComics(@PathVariable int comicsId,@PathVariable int characterId){
+        comicsService.uploadCharacter(characterId, comicsId);
+        return "Character with id " + characterId + "was upload to comics";
+    }
+
     @Operation(summary = "Post comics")
     @PostMapping("/comics")
     public Comics addNewComics(@RequestBody Comics comics) {

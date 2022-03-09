@@ -92,7 +92,7 @@ public class ImageServiceImpl implements ImageService{
     }
 
     @Override
-    public void saveImage(Image image) {
-        imageRepository.save(image);
+    public Image saveImage(Image image) {
+        return imageRepository.save(image);
     }
 }

@@ -73,6 +73,9 @@ public class ComicsServiceImpl implements ComicsService {
     public void saveComics(Comics comics) {
         comicsRepository.save(comics);
     }
-
+    @Override
+    public void uploadCharacter(int characterId, int comicsId) {
+        comicsRepository.updateCharacter(characterId, comicsId);
+    }
 
 }

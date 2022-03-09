@@ -3,6 +3,7 @@ package com.lspoke.marvel.service;
 
 import com.lspoke.marvel.entity.Character;
 import com.lspoke.marvel.entity.Comics;
+import com.lspoke.marvel.entity.Image;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,5 +22,7 @@ public interface CharacterService {
     List<Comics> findComicsByCharacter(int id);
 
     void saveCharacter(Character character);
+    void uploadImage(int imageId, int characterId);
+    Image getImageByCharacterId(int characterId);
 
 }

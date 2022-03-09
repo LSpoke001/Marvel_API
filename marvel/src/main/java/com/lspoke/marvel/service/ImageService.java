@@ -16,5 +16,5 @@ public interface ImageService {
 
     String storeFile(MultipartFile file);
 
-    void saveImage(Image image);
+    Image saveImage(Image image);
 }

@@ -1,5 +1,6 @@
 package com.lspoke.marvel.service;
 
+import com.lspoke.marvel.entity.Image;
 import com.lspoke.marvel.repository.CharacterRepository;
 import com.lspoke.marvel.entity.Character;
 import com.lspoke.marvel.entity.Comics;
@@ -72,6 +73,21 @@ public class CharactersServiceImpl implements CharacterService {
     @Override
     public void saveCharacter(Character character) {
         characterRepository.save(character);
+    }
+
+    @Override
+    public void uploadImage(int imageId, int characterId) {
+        characterRepository.uploadImage(imageId, characterId);
+    }
+
+    @Override
+    public Image getImageByCharacterId(int characterId){
+        Session session = entityManager.unwrap(Session.class);
+        String hql = "select c.image from Character c where c.id = "+ characterId;
+        Query query = session.createQuery(hql);
+
+        Image image = (Image)query.getSingleResult();
+        return image;
     }
 
 }
