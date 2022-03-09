@@ -18,8 +18,4 @@ public interface CharacterRepository extends JpaRepository<Character, Integer> {
     @Modifying
     @Query("update Character set image.id = :imageId where id = :characterId")
     void uploadImage(int imageId, int characterId);
-
-/*    @Transactional
-    @Query("select Character.image from Character where  id = :characterId")
-    Image getImageByCharacterId(int characterId);*/
 }
